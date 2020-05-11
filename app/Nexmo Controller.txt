@@ -1,0 +1,32 @@
+/*public function login(Request $request){
+        Log::info($request);
+        if(Auth::attempt(['no_hp' => request('no_hp'), 'password' => request('password')])){
+            return view('home');
+        }
+        else{
+            return Redirect::back ();
+        }
+    }
+
+    public function loginOtp(Request $request){
+
+        Log::info($request);
+        $user  = User::where([['no_hp','=',request('no_hp')],['otp','=',request('otp')]])->first();
+        if( $user){
+            Auth::login($user, true);
+            User::where('no_hp','=',$request->no_hp)->update(['otp' => null]);
+            return view('home');
+        }
+        else{
+            return Redirect::back ();
+        }
+    }
+
+    public function sendOtp(Request $request){
+
+        $otp = rand(1000,9999);
+        Log::info("otp = ".$otp);
+        /*$user = User::where('no_hp', $request->no_hp)->update(['otp' => 1251]);*/
+        // send otp to mobile no using sms api
+       /* return response()->json([$user],200);
+    }*/

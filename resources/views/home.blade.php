@@ -57,10 +57,10 @@
                     @else
                          "Silahkan lunaskan angsuran Anda" 
                     @endif
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-@endforeach
